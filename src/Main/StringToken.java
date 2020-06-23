@@ -1,16 +1,20 @@
 package Main;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class StringToken {
-	
+	/*
+	 * ,_! ! _@?'  !?_,'! '_'_@.... ''?. ?_ !?. ..!'!?@,?@',?_@'!, !!?_,@?,'@@',, !.? @@@@!!?' _, @???_,@ !_@!'!!!__!??'!. _. ,@! !.?'@,' '_!@@,'?' '?' ''_? '!!'?_?,._!..@_,_', ',',, !!__!_@,.! '?...  ?_? ._ ?' _! '?_..,,''.'@'??.??' @'.?' ?'_.'.'_ .'??@',_@_ , ?! , ._ . ',_'@..' ?,?,!_'',',,,?,..',.?,?_',..@?.,_ .@_?_ ,',.?_!'.??'_@__!!!'._!!__'? .?,._'', @@?!@ '?_ .@  .!!!' .'.', _!''!_@.@..@',@? @?. .@'.,@ , !'! @,@.@. ?,'_!,_'_,'! @_,_@._'?'',!_@ ,'?.@ _!__@'. '?_, ?@_,,.,.@',@!!!@ !?!@ '@_'_ _'  @_? ,_. .@@@ '.  '!@  ._ ,__!__', '._?.,,, ,!.,!?? ??. ?@_  ,@'_@'!.,@@. @@,, ?_??!' !,@'?@!!@@'_ ?'@!.@', !?.'@' _'! @ ?.,., ?' ''@ ?_ __! ! '! . ,.@,'?.?__'__@..@'!@.@ _  .!! !?_ _.?,  ''_._! ? !,_ ,, ,@!?@,@?,. _@ @_'?!._,'_?!,??.?@,.!!' .!..',._'?  '_,'?@ _!.,_,.!?_ ?,,'@!!?@ @@!@.?_'!_.?!@ ??!' ,,,.,!_?.?.,!_ _ _.,?!_.'_ ,@'? !_.?@!',.?_@ _? ? ,@!', .,??!@??? @,!_.@ !. ''!,'?  ?,!'_.,@,@!_@ ''_._@_!@.!'@ ?@!@!,_@@ . @@_.@_??!!!@, ??'!., _ !'@'_@?_.!, ''?? ..''.,,.?@@??'.,_?'?'.' '' @,?'''@@.
+	 */
 	
 	public List<String> splitString(String sentence) {
 		String signals = "!,?._'@";
 		
 		String cleanSentence = removeSignalsBySpaces(sentence, signals);
 		String cleanAditionalSpaces = cleanSentence.trim().replaceAll("\\s{2,}", " ");
+		
 		return removeSpaces(cleanAditionalSpaces);
 		
 	}
@@ -37,7 +41,11 @@ public class StringToken {
 	}
 	
 	private List<String> removeSpaces(String sentence) {
-		return Arrays.asList(sentence.split(" "));
+		if (sentence.trim().equals("")) {
+			return new ArrayList<String>();
+		} else {
+			return Arrays.asList(sentence.split(" "));
+		}
 	}
 	
 
