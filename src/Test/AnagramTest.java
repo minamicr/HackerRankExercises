@@ -53,7 +53,7 @@ public class AnagramTest {
 	@Test
 	public void wordsAreNotAnagramDifferentLength() {
 		String word1 = "abcdbcda";
-		String word2 = "bbccddaaxyz";
+		String word2 = "bbccddaaxyzt";
 		
 		Assert.assertFalse(Anagram.isAnagram(word1, word2));
 	}
